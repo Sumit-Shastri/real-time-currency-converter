@@ -38,6 +38,19 @@ currencies = """
 10. NZD ( New Zealand Dollar )\n
 """
 
+curreny_num_to_name = {
+    1 : "INR",
+    2 : "USD",
+    3 : "EUR",
+    4 : "JPY",
+    5 : "GBP",
+    6 : "CNY",
+    7 : "CHF",
+    8 : "AUD",
+    9 : "CAD",
+    10 : "NZD"
+}
+
 print("\n---   Welcome to Real-Time-Currency-COnverter ---\n")
 
 while(True):
@@ -50,6 +63,7 @@ while(True):
             convert_from = int(input("Convert From : "))
             amount = int(input("Amount : "))
             convert_to = int(input("Convert To : "))
+            print(f"\n{amount}{curreny_num_to_name[convert_from]} to {curreny_num_to_name[convert_to]}\n")
 
             currency_converter(convert_from, amount, convert_to)
 
