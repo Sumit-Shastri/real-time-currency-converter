@@ -7,6 +7,10 @@
 import sys
 from api import currency_converter
 from api import view_history
+from api import favorites
+from api import convert_all
+
+
 """
 -----------------------------------------------------------------------
  Main
@@ -57,14 +61,14 @@ while(True):
         case 3:
             print("--- Favorites ---")
 
-            #favorites()
+            favorites()
 
         case 4:
             print("--- Convert All ---")
 
             convert_from = input("Enter currency code (eg. INR) : ")
 
-            #convert_all(convert_from)
+            convert_all(convert_from)
 
         case 5:
             print("Exiting ...")

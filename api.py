@@ -43,6 +43,37 @@ def currency_converter(convert_from, amount, convert_to):
 def view_history():
     print("Feature available soon.")
 
+
+"""
+-----------------------------------------------------------------------
+    Method Name    : favorites()
+    arguments      : None
+    output         : list most frequent currency conversion
+    description    : This function returns the list of most used 
+                     currency convertion method.
+-----------------------------------------------------------------------
+"""
+
+def favorites():
+    print("Feature available soon.")
+
+
+"""
+-----------------------------------------------------------------------
+    Method Name    : convert_all()
+    arguments      : convert_from       --> currency to convert in every
+                                            other currency
+    output         : conversion of 'conversion_from' to every possible
+                     currency
+    description    : This function returns the list of conversion value
+                     of the selected currency to every possible currency
+                     in world.
+-----------------------------------------------------------------------
+"""
+
+def convert_all(convert_from):
+    print("Feature available soon.")
+
 """
 -----------------------------------------------------------------------
  END
