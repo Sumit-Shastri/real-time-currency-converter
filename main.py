@@ -25,7 +25,7 @@ menu = """
 4. Convert All
 5. Exit
 ------------------------------------------------------\n
-"""
+choose : """
 
 currencies = """
 ------------------------------------------------------
@@ -57,21 +57,62 @@ currency_num_to_name = {
 
 print("\n---   Welcome to Real-Time-Currency-COnverter   ---\n")
 
-while(True):
-    choose_menu = int(input(menu))
+while True:
+
+    # non integer input validation handled
+    try:
+        choose_menu = int(input(menu))
+    except ValueError:
+        print("\nError! : Only Numbers are excepted.Between 1-5")
+        print("Direction : Try again.\n")
+        continue
 
     match (choose_menu):
         case 1:
             print("--- Currency Converter ---")
             print(currencies)
 
-            convert_from = int(input("Convert From : "))
+            # Validation for convert_from
+            while True:
+                try:
+                    convert_from = int(input("Convert From : "))
+                    if convert_from <= 0 or convert_from > 10:
+                        print("Error : Please only select between 1 to 10")
+                    else:
+                        break
+                except ValueError:
+                    print("Error : Only Numbers are expected.")
+                    continue
+
             currency_from_name = currency_num_to_name[convert_from]
             print(f"( {currency_from_name} )")
 
-            amount = int(input("Amount : "))
+            # validation for amount
+            while True:
+                try:
+                    amount = int(input("Amount : "))
+                    if amount <= 0:
+                        print("Error : Amount must be greater than 0.")
+                    else:
+                        break
+                except ValueError:
+                    print("Error : Only Numbers are expected.")
+                    continue
 
-            convert_to = int(input("Convert To : "))
+            # validation for convert to
+            while True:
+                try:
+                    convert_to = int(input("Convert To : "))
+                    if convert_to <= 0 or convert_to > 10:
+                        print("Error : Please only select between 1 to 10")
+                    elif convert_to == convert_from:
+                        print("Cannot select same currency.")
+                    else:
+                        break
+                except ValueError:
+                    print("Error : Only Numbers are expected.")
+                    continue
+
             currency_to_name = currency_num_to_name[convert_to]
             print(f"( {currency_to_name} )")
 
@@ -100,6 +141,9 @@ while(True):
         case 5:
             print("Exiting ...")
             sys.exit()
+
+        case _:
+            print("Invalid Choice, Please select between 1-10.")
 
 """
 -----------------------------------------------------------------------
