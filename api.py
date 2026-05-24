@@ -49,7 +49,7 @@ def currency_converter(convert_from, amount, convert_to):
 
     target_amount = (data["rates"])[convert_to]
 
-    print(f"{amount} {convert_from} : {target_amount} {convert_to}")
+    print(f"{amount} {convert_from} --> {target_amount} {convert_to}")
 
 
 """

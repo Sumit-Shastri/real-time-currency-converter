@@ -18,14 +18,17 @@ from api import convert_all
 """
 
 menu = """
+------------------------------------------------------
 1. Convert Currency
 2. View history
 3. Favorites
 4. Convert All
-5. Exit\n
+5. Exit
+------------------------------------------------------\n
 """
 
 currencies = """
+------------------------------------------------------
 1. INR ( Indian Rupee )
 2. USD ( United State Dollar )
 3. EUR ( EURO ) 
@@ -35,7 +38,8 @@ currencies = """
 7. CHF ( Swiss Franc )
 8. AUD ( Australian Dollar )
 9. CAD ( Canadian Dollar )
-10. NZD ( New Zealand Dollar )\n
+10. NZD ( New Zealand Dollar )
+------------------------------------------------------\n
 """
 
 currency_num_to_name = {
@@ -51,7 +55,7 @@ currency_num_to_name = {
     10 : "NZD"
 }
 
-print("\n---   Welcome to Real-Time-Currency-COnverter ---\n")
+print("\n---   Welcome to Real-Time-Currency-COnverter   ---\n")
 
 while(True):
     choose_menu = int(input(menu))
@@ -60,11 +64,18 @@ while(True):
         case 1:
             print("--- Currency Converter ---")
             print(currencies)
+
             convert_from = int(input("Convert From : "))
-            amount = int(input("Amount : "))
-            convert_to = int(input("Convert To : "))
             currency_from_name = currency_num_to_name[convert_from]
+            print(f"( {currency_from_name} )")
+
+            amount = int(input("Amount : "))
+
+            convert_to = int(input("Convert To : "))
             currency_to_name = currency_num_to_name[convert_to]
+            print(f"( {currency_to_name} )")
+
+
             print(f"\n{amount} {currency_from_name} to {currency_to_name}\n")
 
             currency_converter(currency_from_name, amount, currency_to_name)
