@@ -38,18 +38,16 @@ def currency_converter(convert_from, amount, convert_to):
     # Api endpoint
     url = "https://api.frankfurter.dev/v1/latest"
 
-    print(f"Calculating current exchange rates...")
     r = requests.get(url, params = params)
 
     data = r.json()
 
     # pretty data used for testing.
-    #pretty_data = json.dumps(data, indent = 4)
-    #print(pretty_data)
+    # pretty_data = json.dumps(data, indent = 4)
+    # print(pretty_data)
 
     target_amount = (data["rates"])[convert_to]
-
-    print(f"{amount} {convert_from} --> {target_amount} {convert_to}")
+    return target_amount
 
 
 """

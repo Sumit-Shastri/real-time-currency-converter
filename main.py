@@ -9,6 +9,8 @@ from api import currency_converter
 from api import view_history
 from api import favorites
 from api import convert_all
+from utils import init_csv
+from utils import save_to_csv
 
 
 """
@@ -56,6 +58,8 @@ currency_num_to_name = {
 }
 
 print("\n---   Welcome to Real-Time-Currency-COnverter   ---\n")
+
+init_csv()
 
 while True:
 
@@ -116,10 +120,13 @@ while True:
             currency_to_name = currency_num_to_name[convert_to]
             print(f"( {currency_to_name} )")
 
-
             print(f"\n{amount} {currency_from_name} to {currency_to_name}\n")
 
-            currency_converter(currency_from_name, amount, currency_to_name)
+            print(f"Calculating current exchange rates...")
+            result = currency_converter(currency_from_name, amount, currency_to_name)
+            print(f"{amount} {currency_from_name} --> {result} {currency_to_name}")
+
+            save_to_csv(currency_from_name, amount, currency_to_name)
 
         case 2:
             print("--- View History ---")
