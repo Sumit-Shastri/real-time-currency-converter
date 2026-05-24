@@ -6,7 +6,7 @@
 
 import sys
 from api import currency_converter
-from api import view_history
+from utils import view_history
 from api import favorites
 from api import convert_all
 from utils import init_csv
@@ -124,14 +124,23 @@ while True:
 
             print(f"Calculating current exchange rates...")
             result = currency_converter(currency_from_name, amount, currency_to_name)
+
+            if result == False:
+                print("Try Again.")
+                continue
+
             print(f"{amount} {currency_from_name} --> {result} {currency_to_name}")
 
-            save_to_csv(currency_from_name, amount, currency_to_name)
+            save_to_csv(currency_from_name, amount, currency_to_name, result)
 
         case 2:
-            print("--- View History ---")
+            print("--- View History ---\n")
 
-            view_history()
+            data = view_history()
+
+            for i in data:
+                print(i)
+            print("\n")
 
         case 3:
             print("--- Favorites ---")

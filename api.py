@@ -6,6 +6,7 @@
 
 import requests
 import json
+import os
 
 """
 -----------------------------------------------------------------------
@@ -38,31 +39,22 @@ def currency_converter(convert_from, amount, convert_to):
     # Api endpoint
     url = "https://api.frankfurter.dev/v1/latest"
 
-    r = requests.get(url, params = params)
+    try:
+        r = requests.get(url, params = params)
+        data = r.json()
 
-    data = r.json()
+        # pretty data used for testing.
+        # pretty_data = json.dumps(data, indent = 4)
+        # print(pretty_data)
 
-    # pretty data used for testing.
-    # pretty_data = json.dumps(data, indent = 4)
-    # print(pretty_data)
+        target_amount = (data["rates"])[convert_to]
+        return target_amount
 
-    target_amount = (data["rates"])[convert_to]
-    return target_amount
-
-
-"""
------------------------------------------------------------------------
-    Method Name    : view_history()
-    arguments      : None
-    output         : list of searches
-    description    : This function function returns the whole hostory
-                     of user searches on currency exchange.
------------------------------------------------------------------------
-"""
-
-def view_history():
-    print("Feature available soon.")
-
+    except Exception as e:
+        print("Some error occured by our side.")
+        print("Error : ",e)
+        print("Please try again.")
+        return False
 
 """
 -----------------------------------------------------------------------
