@@ -1,1 +1,3 @@
-sys
+requests
+pandas
+python-dotenv
