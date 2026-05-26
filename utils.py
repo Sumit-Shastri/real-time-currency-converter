@@ -106,6 +106,25 @@ def view_history():
 
     return history_list
 
+
+"""
+-----------------------------------------------------------------------
+    Method Name    : favorites()
+    arguments      : None
+    output         : list most frequent currency conversion
+    description    : This function returns the list of most used 
+                     currency convertion method.
+-----------------------------------------------------------------------
+"""
+
+def favorites():
+    favorite = pandas.read_csv(CSV_FILE)
+
+    favorite["pair"] = favorite["convert_from"] + " -> " + favorite["convert_to"]
+    top3 = favorite["pair"].value_counts().head(3)
+
+    return top3
+
 """
 -----------------------------------------------------------------------
  END

@@ -56,19 +56,6 @@ def currency_converter(convert_from, amount, convert_to):
         print("Please try again.")
         return False
 
-"""
------------------------------------------------------------------------
-    Method Name    : favorites()
-    arguments      : None
-    output         : list most frequent currency conversion
-    description    : This function returns the list of most used 
-                     currency convertion method.
------------------------------------------------------------------------
-"""
-
-def favorites():
-    print("Feature available soon.")
-
 
 """
 -----------------------------------------------------------------------

@@ -7,7 +7,7 @@
 import sys
 from api import currency_converter
 from utils import view_history
-from api import favorites
+from utils import favorites
 from api import convert_all
 from utils import init_csv
 from utils import save_to_csv
@@ -145,7 +145,9 @@ while True:
         case 3:
             print("--- Favorites ---")
 
-            favorites()
+            top3 = favorites()
+            print("Top 3 most frequent currency pairs:")
+            print(top3)
 
         case 4:
             print("--- Convert All ---")
