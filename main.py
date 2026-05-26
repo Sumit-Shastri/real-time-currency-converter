@@ -154,7 +154,26 @@ while True:
 
             convert_from = input("Enter currency code (eg. INR) : ")
 
-            convert_all(convert_from)
+            # validation for amount
+            while True:
+                try:
+                    amount = int(input("Enter amount to calculate : "))
+                    if amount <= 0:
+                        print("Error : Amount must be greater than 0.")
+                    else:
+                        break
+                except ValueError:
+                    print("Error : Only Numbers are expected.")
+                    continue
+
+            print("\n")
+
+            data = convert_all(convert_from, amount)
+
+            i = 0
+            for key, value in data.items():
+                print(f"{i+1}. {amount} {convert_from} ==> {value} {key}")
+                i = i + 1
 
         case 5:
             print("Exiting ...")

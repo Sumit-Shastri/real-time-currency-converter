@@ -66,12 +66,35 @@ def currency_converter(convert_from, amount, convert_to):
                      currency
     description    : This function returns the list of conversion value
                      of the selected currency to every possible currency
-                     in world.
+                     in api response.
 -----------------------------------------------------------------------
 """
 
-def convert_all(convert_from):
-    print("Feature available soon.")
+def convert_all(convert_from, amount):
+    params = {
+        "base": f"{convert_from}",  # base currency
+        "amount": amount
+    }
+
+    # Api endpoint
+    url = "https://api.frankfurter.dev/v1/latest"
+
+    try:
+        r = requests.get(url, params=params)
+        data = r.json()
+
+        # pretty data used for testing.
+        #pretty_data = json.dumps(data, indent = 4)
+        #print(pretty_data)
+
+        rates_list = data["rates"]
+        return rates_list
+
+    except Exception as e:
+        print("Some error occured by our side.")
+        print("Error : ",e)
+        print("Please try again.")
+        return False
 
 """
 -----------------------------------------------------------------------
